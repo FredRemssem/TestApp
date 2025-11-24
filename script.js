@@ -236,3 +236,16 @@ function resetTimer() {
     document.getElementById('status').innerText = "PRÊT";
     document.getElementById('status').className = "";
 }
+
+// Enregistrement du Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(registration => {
+        console.log('SW enregistré avec succès: ', registration);
+      })
+      .catch(error => {
+        console.log('Échec de l\'enregistrement du SW: ', error);
+      });
+  });
+}
