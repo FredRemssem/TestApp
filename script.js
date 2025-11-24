@@ -33,6 +33,34 @@ function makeSound(frequency, duration) {
     }, duration);
 }
 
+/**
+ * Incrémente ou décrémente la valeur d'un champ input.
+ * @param {string} id - L'ID du champ input à modifier ('rounds', 'work', ou 'rest').
+ * @param {number} delta - La valeur à ajouter (+1, -1, +5, -5, etc.).
+ */
+function changeValue(id, delta) {
+    const input = document.getElementById(id);
+    let currentValue = parseInt(input.value) || 0; // Récupère la valeur ou 0 si vide/invalide
+    let newValue = currentValue + delta;
+    
+    // Appliquer les contraintes de valeur minimale
+    if (id === 'rounds' || id === 'work') {
+        // Rounds et temps de travail : minimum 1 seconde/round
+        if (newValue >= 1) {
+            input.value = newValue;
+        } else {
+            input.value = 1; // Ne descend pas en dessous de 1
+        }
+    } else if (id === 'rest') {
+        // Temps de repos : minimum 0 seconde
+        if (newValue >= 0) {
+            input.value = newValue;
+        } else {
+            input.value = 0; // Ne descend pas en dessous de 0
+        }
+    }
+}
+
 // =================================================================
 // Démarrage et gestion du "Get Ready"
 // =================================================================
