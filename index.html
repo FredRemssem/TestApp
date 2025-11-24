@@ -12,24 +12,28 @@
         <h1>Interval Timer for my Dudu</h1>
 
         <div id="setup" class="input-group">
-            <label for="rounds">Repetitions:</label>
+            
+            <label for="rounds">Rounds:</label>
             <div class="control">                
                 <button type="button" onclick="changeValue('rounds', -1)">-</button>
                 <input type="number" id="rounds" value="10">
                 <button type="button" onclick="changeValue('rounds', 1)">+</button>
             </div>
+            
             <label for="work">Travail (sec):</label>
             <div class="control">
                 <button type="button" onclick="changeValue('work', -5)">-</button>
                 <input type="number" id="work" value="30">
-                <button type="button" onclick="changeValue('work', +5)">+</button>
+                <button type="button" onclick="changeValue('work', 5)">+</button>
             </div>
+            
             <label for="rest">Repos (sec):</label>
             <div class="control">                
                 <button type="button" onclick="changeValue('rest', -5)">-</button>
                 <input type="number" id="rest" value="10">
-                <button type="button" onclick="changeValue('rest', +5)">+</button>
+                <button type="button" onclick="changeValue('rest', 5)">+</button>
             </div>
+            
             <button onclick="startTimer()">Lancer</button>
         </div>
 
