@@ -84,15 +84,22 @@ button {
 }
 
 /* Règle pour les labels pour s'assurer qu'ils prennent l'espace nécessaire */
-.control label {
-    flex-grow: 1; /* Permet au label de s'étendre un peu si besoin */
-    text-align: left; /* Aligne le texte du label à gauche */
-    padding-right: 10px;
+.control button {
+    width: 30px; 
+    height: 30px;
+    padding: 0;
+    margin: 0; 
+    font-size: 1.2rem;
+    background-color: #444; 
+    border-radius: 0; /* Pas d'arrondi sur les côtés intérieurs */
 }
 
 /* Règle pour l'input pour le garder à droite */
 .control input {
-    /* On retire le 'display: block' forcé par les anciennes règles */
-    display: inline-block; 
-    width: 60px; /* On augmente légèrement la largeur pour la lisibilité */
+    width: 40px; 
+    height: 30px; 
+    margin: 0;
+    border-radius: 0; /* Pas d'arrondi sur les côtés */
+    background-color: #555; /* Fond plus foncé pour le champ */
+    color: white;
 }
