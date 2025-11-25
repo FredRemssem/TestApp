@@ -1,0 +1,16 @@
+/**
+ * Styles pour l'affichage du minuteur
+   pendant les exercices
+ */
+
+#time-left {
+    font-size: 5rem;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* Codes couleurs dynamiques */
+.work-mode { color: #0f0; } /* Vert pour le travail */
+.rest-mode { color: #f00; } /* Rouge pour le repos */
+.get-ready-mode { color: #ffcc00; } /* Jaune pour la préparation */
+.finish-mode { color: #4CAF50; } /* Vert foncé pour la fin */

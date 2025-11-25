@@ -5,22 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interval Timer</title>
     <link rel="manifest" href="./manifest.json">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="setup-styles.css">
+    <link rel="stylesheet" href="timer-styles.css">
 </head>
 <body>
 
     <div class="container">
         <img src="./images/panda-sport.png" alt="Panda faisant de la corde à sauter" class="header-image">
-        <h1>Interval Timer for my Dudu</h1>
+        <h1>Training Timer</h1>
+        <p>For Dudu and Bubu</p>
+        <div id="mode-selection">
+            <h2>Choisissez votre mode</h2>
+            <button onclick="selectMode('interval')">Mode Intervalle (Cardio)</button>
+            <button onclick="selectMode('circuit')">Mode Circuit (Musculation)</button>
+        </div>
 
-        <div id="setup" class="input-group">
-            
+        <div id="setup" class="input-group hidden">
             <label for="rounds">Rounds:</label> 
             <div class="control stepper-single">  <button type="button" onclick="changeValue('rounds', -1)">-</button>
                 <input type="number" id="rounds" value="10">
                 <button type="button" onclick="changeValue('rounds', 1)">+</button>
             </div>
-            
             <label>Travail (Min:Sec):</label>
             <div class="control stepper-complex">
                 <button type="button" onclick="changeTime('work', 'sec', -5)">-</button>
@@ -29,7 +35,6 @@
                 <input type="number" id="work-sec" value="30" min="0" max="59">
                 <button type="button" onclick="changeTime('work', 'sec', 5)">+</button>
             </div>
-
             <label>Repos (Min:Sec):</label>
             <div class="control stepper-complex">
                 <button type="button" onclick="changeTime('rest', 'sec', -5)">-</button>
@@ -38,8 +43,8 @@
                 <input type="number" id="rest-sec" value="10" min="0" max="59">
                 <button type="button" onclick="changeTime('rest', 'sec', 5)">+</button>
             </div>
-            
             <button onclick="startTimer()">Lancer</button>
+            <button onclick="goBack()" class="go-back">Retour</button>
         </div>
 
         <div id="timer-display" class="hidden">
@@ -50,6 +55,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="app.js" type="module"></script>
 </body>
 </html>

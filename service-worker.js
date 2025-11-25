@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dudu-timer-cache-v1';
+const CACHE_NAME = 'dudu-timer-cache-v1.10';
 const urlsToCache = [
   './',
   './index.html',
