@@ -22,7 +22,7 @@
         </div>
 
         <div id="setup" class="input-group hidden">
-            <label for="rounds">Rounds:</label> 
+            <label for="rounds">Répétitions:</label> 
             <div class="control stepper-single">  <button type="button" onclick="changeValue('rounds', -1)">-</button>
                 <input type="number" id="rounds" value="10">
                 <button type="button" onclick="changeValue('rounds', 1)">+</button>
@@ -44,6 +44,32 @@
                 <button type="button" onclick="changeTime('rest', 'sec', 5)">+</button>
             </div>
             <button onclick="startTimer()">Lancer</button>
+            <button onclick="goBack()" class="go-back">Retour</button>
+        </div>
+
+        <div id="setup-circuit" class="input-group hidden">
+            <h2>Configuration Circuit</h2>
+            <label for="sets">Nombre de Séries:</label> 
+            <div class="control stepper-single">  
+                <button type="button" onclick="changeValue('sets', -1)">-</button>
+                <input type="number" id="sets" value="3" min="1">
+                <button type="button" onclick="changeValue('sets', 1)">+</button>
+            </div>
+            <label>Repos entre Séries (Min:Sec):</label>
+            <div class="control stepper-complex">
+                <button type="button" onclick="changeTime('break', 'sec', -10)">-</button>
+                <input type="number" id="break-min" value="01" min="0" max="99">
+                <span class="separator">:</span>
+                <input type="number" id="break-sec" value="30" min="0" max="59">
+                <button type="button" onclick="changeTime('break', 'sec', 10)">+</button>
+            </div>
+            <h3 class="exercise-list-title">Liste des Exercices</h3>
+            <!-- Conteneur pour la liste des exercices (sera rempli par JS: mode-circuit.js) -->
+            <div id="exercise-list" class="exercise-list-container">
+                <!-- Les blocs d'exercices générés dynamiquement iront ici -->
+            </div>
+            <button onclick="addExercise()" class="btn-add-exercise">Ajouter un exercice</button>
+            <button onclick="startCircuitTimer()">Lancer le Circuit</button>
             <button onclick="goBack()" class="go-back">Retour</button>
         </div>
 

@@ -111,47 +111,6 @@ function handlePhaseEnd() {
     }
 }
 
-export function changeValue(id, delta) {
-    const input = document.getElementById(id);
-    let currentValue = parseInt(input.value) || 0; 
-    let newValue = currentValue + delta;
-    
-    if (id === 'rounds') {
-        if (newValue >= 1) {
-            input.value = newValue;
-        } else {
-            input.value = 1; 
-        }
-    }
-}
-
-export function changeTime(mode, unit, delta) {
-    const input = document.getElementById(`${mode}-${unit}`);
-    let currentValue = parseInt(input.value) || 0;
-    let newValue = currentValue + delta;
-
-    if (unit === 'sec') {
-        // Logique pour les secondes : boucle entre 0 et 59
-        if (newValue > 59) {
-            newValue = 0;
-            // On incrémente la minute si on passe de 59 à 60
-            if (delta > 0) changeTime(mode, 'min', 1);
-        } else if (newValue < 0) {
-            newValue = 55; // On va à 55s si on décrémente en dessous de 0
-            // On décrémente la minute si on passe de 0 à -1
-            if (delta < 0) changeTime(mode, 'min', -1);
-        }
-    } else if (unit === 'min') {
-        // Logique pour les minutes : ne descend pas sous zéro
-        if (newValue < 0) {
-            newValue = 0;
-        }
-    }
-    
-    // Met à jour l'affichage en ajoutant un zéro si nécessaire (padStart)
-    input.value = String(newValue).padStart(2, '0');
-}
-
 export function startTimer() {
     // 1. Récupérer et convertir les valeurs des inputs Min:Sec
     

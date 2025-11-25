@@ -7,7 +7,7 @@
  */
 
 
-/**
+/**---------------------------------------------
  * Styles pour le conteneur de sélection du mode
    ---------------------------------------------
  */ 
@@ -23,8 +23,9 @@
     color: #ccc;
 }
 
-/**
- * Styles pour le conteneur de configuration des intervalles
+/**---------------------------------------------------------
+ * Styles pour Mode Intervalle (Cardio) - Conteneur #setup
+ *  et ses éléments enfants (Labels, Steppers)
    ---------------------------------------------------------
  */
 #setup {
@@ -91,3 +92,154 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+/* --------------------------------------
+   Styles pour le Mode Circuit (Musculation)
+   -------------------------------------- */
+
+/* Titre de la liste des exercices */
+.exercise-list-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ccc;
+}
+
+/* Conteneur des exercices générés par JS */
+.exercise-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Bloc d'un exercice individuel */
+.exercise-block {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Header de l'exercice (Nom et bouton de suppression) */
+.exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.exercise-block h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #4f46e5; /* Indigo */
+}
+
+/* Bouton de suppression */
+.remove-btn {
+    background: none;
+    border: none;
+    color: #e53e3e; /* Rouge */
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.15s;
+}
+
+.remove-btn:hover {
+    color: #c53030;
+}
+
+/* Input du nom de l'exercice */
+.exercise-name-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Labels de temps dans les blocs d'exercices */
+.exercise-block label {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Stepper pour les temps d'exercices */
+.exercise-stepper {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+.exercise-stepper button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    white-space: nowrap; /* Empêche les boutons de s'étirer */
+}
+
+.exercise-stepper button:nth-child(1) { /* Bouton -5s */
+    background-color: #ef4444; /* Rouge */
+}
+
+.exercise-stepper button:nth-child(3) { /* Bouton +5s */
+    background-color: #10b981; /* Vert */
+}
+
+.exercise-stepper input[type="number"] {
+    flex-grow: 1;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Bouton Ajouter Exercice */
+.btn-add-exercise {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 1rem;
+    background-color: #4f46e5; /* Indigo */
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.btn-add-exercise:hover {
+    background-color: #4338ca;
+}
+
+/* Styles spécifiques pour le Repos entre Séries dans #setup-circuit */
+/* Boutons -15s / +15s 
+#setup-circuit .stepper-complex button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+#setup-circuit .stepper-complex button:hover {
+    background-color: #e0e0e0;
+}*/
