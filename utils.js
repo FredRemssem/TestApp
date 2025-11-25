@@ -26,3 +26,12 @@ export function makeSound(frequency, duration) {
         oscillator.stop();
     }, duration);
 }
+
+// =================================================================
+// ⏱️ Fonction pour formater le temps en MM:SS ⏱️
+// =================================================================
+export function formatTime(seconds) {
+    const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+    const s = (seconds % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+}

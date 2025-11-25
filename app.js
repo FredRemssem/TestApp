@@ -16,6 +16,7 @@ window.selectMode = function(mode) {
         document.getElementById('setup')?.classList.remove('hidden');
     } else if (mode === 'circuit') {
         document.getElementById('setup-circuit')?.classList.remove('hidden');
+        CircuitMode.initializeCircuitSetup();
     }
 };
 
@@ -84,7 +85,10 @@ window.resetTimer = IntervalMode.resetTimer;
 // EXPOSITION DES FONCTIONS DU MODE CIRCUIT AU HTML
 // ===========================================
 // Ces lignes exposent les fonctions du module au DOM global
-
+window.addExercise = CircuitMode.addExercise; 
+window.removeExercise = CircuitMode.removeExercise;
+window.changeExerciseData = CircuitMode.changeExerciseData; 
+window.startCircuitTimer = CircuitMode.startCircuitTimer; 
 
 // =================================================
 // Enregistrement du Service Worker

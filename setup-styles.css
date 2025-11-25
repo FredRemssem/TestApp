@@ -1,8 +1,8 @@
 /**----------------------------------------
  * Styles pour la configuration des menus :
- *  - Principal
- *  - Intervalles
- *  - Circuits
+ * - Principal
+ * - Intervalles
+ * - Circuits
  * ----------------------------------------
  */
 
@@ -25,7 +25,7 @@
 
 /**---------------------------------------------------------
  * Styles pour Mode Intervalle (Cardio) - Conteneur #setup
- *  et ses éléments enfants (Labels, Steppers)
+ * et ses éléments enfants (Labels, Steppers)
    ---------------------------------------------------------
  */
 #setup {
@@ -47,166 +47,177 @@
     justify-content: center; /* Centre le stepper au milieu du conteneur #setup */
     margin: 0 auto;
     width: fit-content;
-    border-radius: 5px;
-    overflow: hidden;
+    border-radius: 8px; /* Ajout d'un border-radius aux conteneurs de contrôle */
 }
 
-/* Styles pour le mode compact Min:Sec */
-.stepper-complex {
-    /* Assure que l'alignement soit horizontal pour le min:sec */
+/* Styles pour les steppers simples et complexes */
+.stepper-single, .stepper-complex {
     display: flex;
     align-items: center;
-}
-.stepper-complex input {
-    width: 35px;
-    height: 30px;
-    margin: 0;
-    border-radius: 0;
-    background-color: #555;
-    color: white;
-    text-align: center;
-    font-size: 1rem;
-}
-.stepper-complex .separator {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ccc;
-    padding: 0 5px;
-}
-/* Styles pour les boutons (+/-) du stepper aux extrémités */
-.stepper-complex button {
-    width: 30px; 
-    height: 30px;
-    padding: 0;
-    margin: 0; 
-    font-size: 1.2rem;
-    background-color: #444; 
-    border-radius: 0; 
-}
-/* Styles pour les arrondis (seulement les boutons extérieurs) */
-.stepper-complex button:first-child {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-.stepper-complex button:last-of-type {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    gap: 5px; /* Espace entre les boutons et les inputs */
 }
 
-/* --------------------------------------
-   Styles pour le Mode Circuit (Musculation)
-   -------------------------------------- */
-
-/* Titre de la liste des exercices */
-.exercise-list-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #333;
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid #ccc;
-}
-
-/* Conteneur des exercices générés par JS */
-.exercise-list-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-/* Bloc d'un exercice individuel */
-.exercise-block {
-    padding: 1rem;
-    border: 1px solid #ddd;
+.stepper-single button, .stepper-complex button {
+    padding: 10px 15px;
+    border: none;
     border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* Header de l'exercice (Nom et bouton de suppression) */
-.exercise-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.exercise-block h4 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #4f46e5; /* Indigo */
-}
-
-/* Bouton de suppression */
-.remove-btn {
-    background: none;
-    border: none;
-    color: #e53e3e; /* Rouge */
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0;
-    line-height: 1;
-    transition: color 0.15s;
-}
-
-.remove-btn:hover {
-    color: #c53030;
-}
-
-/* Input du nom de l'exercice */
-.exercise-name-input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-/* Labels de temps dans les blocs d'exercices */
-.exercise-block label {
-    display: block;
-    margin-top: 8px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #555;
-}
-
-/* Stepper pour les temps d'exercices */
-.exercise-stepper {
-    display: flex;
-    gap: 8px;
-    align-items: stretch;
-}
-
-.exercise-stepper button {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
     color: white;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.15s;
-    white-space: nowrap; /* Empêche les boutons de s'étirer */
+    background-color: #0070f3; /* Bleu primaire */
+}
+.stepper-single button:hover, .stepper-complex button:hover {
+    background-color: #005bb5;
 }
 
-.exercise-stepper button:nth-child(1) { /* Bouton -5s */
-    background-color: #ef4444; /* Rouge */
-}
-
-.exercise-stepper button:nth-child(3) { /* Bouton +5s */
-    background-color: #10b981; /* Vert */
-}
-
-.exercise-stepper input[type="number"] {
-    flex-grow: 1;
+.stepper-single input, .stepper-complex input {
+    width: 30px; /* Taille réduite pour les inputs */
+    padding: 10px 5px;
     text-align: center;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
 }
+.stepper-complex .separator {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ccc;
+}
+
+/**-------------------------------------------------
+ * Styles pour Mode Circuit (Musculation) - Conteneur #setup-circuit
+ * et la liste des exercices
+   -------------------------------------------------
+ */
+#setup-circuit {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 10px;
+}
+
+/* Titre de la liste d'exercices */
+.exercise-list-title {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #ccc;
+}
+
+/* Conteneur de la liste */
+.exercise-list-container {
+    max-height: 40vh; /* Limite la hauteur pour les petits écrans */
+    overflow-y: auto; /* Permet le défilement */
+    padding: 5px;
+    background-color: #222; /* Fond pour la liste */
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espace entre chaque exercice */
+}
+
+/* Bloc d'un exercice unique */
+.exercise-block {
+    background-color: #383838;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espace vertical dans le bloc */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Styles pour la nouvelle disposition compacte */
+.exercise-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Prend toute la largeur disponible dans le bloc */
+    width: 100%; 
+}
+/* Styles pour la version simplifiée SANS numéro d'exercice */
+.exercise-header.simplified {
+    /* Enlève l'espace que prenait le H4 et centre les éléments restants */
+    justify-content: space-between; 
+}
+
+
+.exercise-header h4 {
+    /* Cette règle est gardée pour ne pas casser le mode intervalle, mais elle n'est plus utilisée dans le HTML circuit */
+    flex-shrink: 0; 
+    margin: 0;
+    font-size: 1em;
+    font-weight: bold;
+    color: #0070f3;
+}
+
+.exercise-select {
+    flex-grow: 1; /* Le select prend l'espace restant */
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #444;
+    color: white;
+    font-size: 1em;
+}
+
+.remove-btn.compact {
+    padding: 5px 10px; /* Rendre le bouton plus petit */
+    font-size: 1.2em;
+    background-color: #dc3545; /* Rouge pour supprimer */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 1;
+}
+.remove-btn.compact:hover {
+    background-color: #c82333;
+}
+
+/* Le conteneur des contrôles (Reps) */
+.exercise-controls {
+    display: flex;
+    /* Justification retirée pour centrer les Reps */
+    justify-content: center; 
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap; 
+}
+
+/* Centrage forcé pour la version simplifiée (une seule ligne de contrôle) */
+.exercise-controls.simplified {
+    justify-content: center;
+}
+
+.exercise-controls label {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #aaa;
+}
+
+/* Aligner Reps et Repos en ligne */
+.compact-stepper {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+/* Ajustement des inputs/boutons dans le stepper compact */
+.compact-stepper input[type="number"] {
+    width: 25px; 
+    padding: 5px;
+    font-size: 0.9em;
+}
+
+.compact-stepper button {
+    padding: 5px 8px;
+    font-size: 0.8em;
+}
+
 
 /* Bouton Ajouter Exercice */
 .btn-add-exercise {
@@ -227,19 +238,31 @@
     background-color: #4338ca;
 }
 
-/* Styles spécifiques pour le Repos entre Séries dans #setup-circuit */
-/* Boutons -15s / +15s 
-#setup-circuit .stepper-complex button {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f0f0f0;
-    color: #333;
+
+/* Bouton "Exercice Suivant" généré dynamiquement pendant le circuit */
+.btn-next-exercise {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #28a745; /* Vert validation */
+    color: white;
+    font-size: 1.5rem;
     font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.15s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;
 }
 
-#setup-circuit .stepper-complex button:hover {
-    background-color: #e0e0e0;
-}*/
+.btn-next-exercise:hover {
+    background-color: #218838;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
